@@ -1,5 +1,9 @@
 month = str(input("Введите месяц рождения:"))
 date = int(input("Введите день рождения:"))
+while month != True:
+   print('Вы ввели неверные данные!')
+   month = str(input("Введите месяц рождения:"))
+   break
 if (date >= 11 and date <= 31 and month == 'Март') or (month == 'Апрель' and date >= 1 and date <= 10):
    print("Знак зодиака:Овен")   
 elif (date >= 11 and date <= 30 and month == 'Апрель') or (month == 'Май' and date >= 1 and date <= 10):
