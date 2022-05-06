@@ -1,3 +1,1 @@
 #Код исключительно для проб, не является рабочим объектом
-import requests
-from bs4 import BeautifulSoup
