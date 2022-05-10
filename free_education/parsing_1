@@ -3,5 +3,5 @@ from os import link
 import requests
 
 link = 'http://icanhazip.com/'
-take = requests.get(link).text
-print(f'Ваш ip-адрес: {take}')
+take = requests.get(link)
+print(f'Ваш ip-адрес: {take.text}')
