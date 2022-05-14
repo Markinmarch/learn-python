@@ -1,1 +1,6 @@
-print()
+boys = ['Peter', 'Alex', 'John', 'Arthur', 'Richard']
+girls = ['Kate', 'Liza', 'Kira', 'Emma', 'Trisha']
+boys.sort()
+girls.sort()
+couple = zip(boys, girls)
+print('Идеальные пары: ', list(couple), end='')
