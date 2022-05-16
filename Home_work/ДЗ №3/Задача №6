@@ -1,6 +1,16 @@
-boys = ['Peter', 'Alex', 'John', 'Arthur', 'Richard']
-girls = ['Kate', 'Liza', 'Kira', 'Emma', 'Trisha']
-boys.sort()
-girls.sort()
-couple = zip(boys, girls)
-print('Идеальные пары: ', list(couple))
+boys = []
+add_boys = input('Введите имя парней через запятую и затем "Enter" для завершения ввода: ')
+boys_name = add_boys.split(',')
+boys.append(add_boys)
+print(f'Имя: {boys_name}')
+# boys = ['Peter', 'Alex', 'John', 'Arthur', 'Richard']
+# girls = ['Kate', 'Liza', 'Kira', 'Emma', 'Trisha']
+# boys.sort()
+# girls.sort()
+# couple = list(zip(boys, girls))
+# while True:
+#     if len(boys) == len(girls):
+#         print(f'Идеальные пары: {couple}')
+#     else:
+#         print('Количество парней и девушек разняться, кто-то останется без пары!')
+#     break
