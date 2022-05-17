@@ -7,8 +7,8 @@ boys = [add_boys]
 add_girls= input('Введите имя девушек через запятую и затем "Enter" для завершения ввода: ').split(',')
 girls = [add_girls]
 # Сортируем списки ребят:s
-new_boys = sorted(boys, key=str.lower)
-new_girls = sorted(girls, key=str.lower)
+new_boys = sorted(add_boys, key=str.lower)
+new_girls = sorted(add_girls, key=str.lower)
 
 #   Это я закоментил списки по ДЗ
 # boys_name = ['Peter', 'Alex', 'John', 'Arthur', 'Richard']
