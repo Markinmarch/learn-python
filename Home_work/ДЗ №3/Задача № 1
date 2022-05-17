@@ -1,22 +1,14 @@
 print('Программа для знакомств')
+#   Вводим имена, присваивая имя переменной и сразу же делим через split
+add_boys = input('Введите имя парней через запятую и затем "Enter" для завершения ввода: ').split(',')
 #   Создаём список парней.
-boys = []
-#   Вводим имена, присваивая имя переменной.
-add_boys = input('Введите имя парней через запятую и затем "Enter" для завершения ввода: ')
-#   Введённые имена разбиваем на список при помощи .split
-boys_name = add_boys.split(',')
-#   Затем добавляем их в список при помощи .append
-boys.append(add_boys)
-
+boys = [add_boys]
 #   Тут всё то же самое, только с девочками
-girls = []
-add_girls= input('Введите имя девушек через запятую и затем "Enter" для завершения ввода: ')
-girls_name = add_girls.split(',')
-girls.append(add_girls)
-
-# Сортируем списки ребят:
-new_boys = sorted(boys_name, key=str.lower)
-new_girls = sorted(girls_name, key=str.lower)
+add_girls= input('Введите имя девушек через запятую и затем "Enter" для завершения ввода: ').split(',')
+girls = [add_girls]
+# Сортируем списки ребят:s
+new_boys = sorted(boys, key=str.lower)
+new_girls = sorted(girls, key=str.lower)
 
 #   Это я закоментил списки по ДЗ
 # boys_name = ['Peter', 'Alex', 'John', 'Arthur', 'Richard']
@@ -44,6 +36,6 @@ while True:
         print(f'Идеальные пары:\n {couple_second}')
     else:
         print('Количество парней и девушек разняться, кто-то останется без пары!')
-        print(f'Идеальные пары:\n {couple_second}')
     break
-# ПыСЫ: очень надеюсь, что за комментарии к коду получу хорошие баллы в рейтинге.
+
+# 15 строк чистого кода
