@@ -1,4 +1,6 @@
 print('Программа для повара')
-dish = input('Введите навание блюда: ').split(',')
-print(dish)
+cook_book = input('Введите навание блюда через запятую: ').split(',')
+print(cook_book)
+dish = 
+
 

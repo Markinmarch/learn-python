@@ -3,7 +3,7 @@ print('Программа для знакомств')
 boys = input('Введите имя парней через запятую и затем "Enter" для завершения ввода: ').split(',')
 #   Тут всё то же самое, только с девочками
 girls= input('Введите имя девушек через запятую и затем "Enter" для завершения ввода: ').split(',')
-# Сортируем списки ребят:s
+# Сортируем списки ребят:
 new_boys = sorted(boys, key=str.lower)
 new_girls = sorted(girls, key=str.lower)
 
@@ -24,13 +24,13 @@ new_girls = sorted(girls, key=str.lower)
 #     couple.append(list(i))
 
 #   Здесь с использованием функции map() - очень классная штука.
-couple = (list(map(list,zip(new_boys, new_girls))))
+couple = list(map(list,zip(new_boys, new_girls)))
 #   Распаковываем списки из списков
-couple_second = '\n'.join([str(i) for i in couple])
+couple_second = '\n'.join(str(i) for i in couple)
 #   Тут и так всё понятно
 while True:
     if len(new_boys) == len(new_girls):
-        print(f'Идеальные пары:\n {couple_second}')
+        print(f'Идеальные пары:\n{couple_second}')
     else:
         print('Количество парней и девушек разняться, кто-то останется без пары!')
     break
