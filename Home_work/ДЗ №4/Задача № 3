@@ -22,4 +22,4 @@ for query in queries:
 
 for key, value in storage.items():
     percentage = round((value / len(queries)) * 100, 2)
-    print(f'Поисковых запросов из {key} слов (а): {percentage}% ({value} запр.)')
+    print(f'Поисковых запросов из {key} слов: {percentage}% ({value} запр.)')
