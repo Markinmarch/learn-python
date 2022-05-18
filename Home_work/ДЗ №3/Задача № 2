@@ -35,4 +35,4 @@ cook_book = [
 for dish in cook_book:
   print(dish[0])
   for meal in dish[1]:
-    print(meal[0],meal[1]*person,meal[2])
+    print(meal[0], meal[1] * person, meal[2])
