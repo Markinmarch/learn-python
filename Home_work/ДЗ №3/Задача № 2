@@ -30,9 +30,5 @@ cook_book = [
   ]
 ]
 person = int(input('Введите количество персон: '))
-while True:
-    if person != int:
-        print('Введите количество персон цифрами!')
-    else:
-        pass    
-    break
+for dish in cook_book:
+    print(dish)
