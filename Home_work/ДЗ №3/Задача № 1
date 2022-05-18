@@ -11,28 +11,7 @@ new_girls = sorted(girls, key=str.lower)
 # boys_name = ['Peter', 'Alex', 'John', 'Arthur', 'Richard']
 # girls_name = ['Kate', 'Liza', 'Kira', 'Emma', 'Trisha']
 
-#   Сшиваем отсортированные списки, запаковывая списки в списки - потому что по умолчания zip() выводит в кортеж.
-#   Пробовал все
-# couple = list(list(i) for i in zip(boys_name, girls_name))
-
-# couple = []
-# for i in range(len(boys_name, girls_name)):
-#     couple.append([boys_name[i], girls_name[i]])
-
-# couple = []
-# for i in zip(boys_name, girls_name):
-#     couple.append(list(i))
-
-#   Здесь с использованием функции map() - очень классная штука.
-couple = list(map(list,zip(new_boys, new_girls)))
-#   Распаковываем списки из списков
-couple_second = '\n'.join(str(i) for i in couple)
-#   Тут и так всё понятно
-while True:
-    if len(new_boys) == len(new_girls):
-        print(f'Идеальные пары:\n{couple_second}')
-    else:
-        print('Количество парней и девушек разняться, кто-то останется без пары!')
-    break
-
-# 13 строк чистого кода
+for lovers in zip (new_boys, new_girls):
+    print(f'Идеальные пары:\n{lovers[0]} и {lovers[1]}')
+else:
+    print('Количество парней и девушек разняться, кто-то останется без пары!')
