@@ -16,9 +16,7 @@ for query in queries:
     if len(words) in storage.keys():
         storage[len(words)] += 1
     else:
-        storage.update({
-            len(words): 1
-        })
+        storage[len(words)] = 1
 
 for key, value in storage.items():
     percentage = round((value / len(queries)) * 100, 2)
