@@ -26,11 +26,11 @@ def get_shelf_number(shelf_number):
 
 def get_list(docs):
   for doc in docs:
-    return (f"{doc['type']} {doc['number']} {doc['name']}")
-print(get_list(documents))
+    print(f"{doc['type']} {doc['number']} {doc['name']}")
+# (get_list(documents))
 
 def add_doc(docs_add):
-  shelf = input('Введите номер полки куда положить документ. ')
+  shelf = input('Введите номер полки, куда положить документ. ')
   if shelf not in docs_add:
       return 'Нет такой полки'
   doc = {}
@@ -38,6 +38,19 @@ def add_doc(docs_add):
       doc[info] = input(f'{info}: ')
   docs_add[shelf] = docs_add.get(shelf).append(doc['number'])
   return 'Документ добавлен'
+# print(add_doc(directories))
+
+def del_doc(del_number, del_shelf):
+  del_num = input('Введите номер документа: ')
+  for doc in del_number:
+    if del_num in doc['number']:
+      doc['number'] = 'Удален'
+  for directory_value in del_shelf.values():
+    if del_num in directory_value:
+      directory_value.remove(del_shelf)
+      return('\n  Номер документа удален из каталога и полки!')
+  return('\n  Внимание! Такого документа - нет.')
+# print(del_doc(documents, directories))
 
 # while True:
 #   print('Возможные команды: p, s, l, a')
@@ -50,7 +63,7 @@ def add_doc(docs_add):
 #     print(get_shelf_number(directories))
     
 #   elif comand == 'l':
-#     print(get_list(documents))
+#     (get_list(documents))
     
 #   elif comand == 'a':
 #     print(add_doc(directories))
