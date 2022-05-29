@@ -52,19 +52,18 @@ def del_doc(del_number, del_shelf):
   return('\n  Внимание! Такого документа - нет.')
 # print(del_doc(documents, directories))
 
-# while True:
-#   print('Возможные команды: p, s, l, a')
-#   comand = input('Введите название команды ')
+while True:
+  print('Возможные команды: p, s, l, a')
+  comand = input('Введите название команды ')
  
-#   if comand == 'p':
-#     print(get_people_name(documents))
+  if comand == 'p':
+    print(get_people_name(documents))
     
-#   elif comand == 's':
-#     print(get_shelf_number(directories))
+  elif comand == 's':
+    print(get_shelf_number(directories))
     
-#   elif comand == 'l':
-#     (get_list(documents))
+  elif comand == 'l':
+    (get_list(documents))
     
-#   elif comand == 'a':
-#     print(add_doc(directories))
-# print(documents[::])
+  elif comand == 'a':
+    print(add_doc(directories))
