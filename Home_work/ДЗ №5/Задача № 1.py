@@ -29,28 +29,21 @@ def get_list(docs):
     print(f"{doc['type']} {doc['number']} {doc['name']}")
 # (get_list(documents))
 
-def add_doc(docs_add):
-  shelf = input('Введите номер полки, куда положить документ. ')
-  if shelf not in docs_add:
-      return 'Нет такой полки'
-  doc = {}
-  for info in ('type', 'number', 'name'):
-      doc[info] = input(f'{info}: ')
-  docs_add[shelf] = docs_add.get(shelf).append(doc['number'])
-  return 'Документ добавлен'
-# print(add_doc(directories))
-
-def del_doc(del_number, del_shelf):
-  del_num = input('Введите номер документа: ')
-  for doc in del_number:
-    if del_num in doc['number']:
-      doc['number'] = 'Удален'
-  for directory_value in del_shelf.values():
-    if del_num in directory_value:
-      directory_value.remove(del_shelf)
-      return('\n  Номер документа удален из каталога и полки!')
-  return('\n  Внимание! Такого документа - нет.')
-# print(del_doc(documents, directories))
+def add_doc(docs_add, direct_add):
+  num_shelf = input('Введите номер полки, куда положить документ: ')
+  if num_shelf not in direct_add.keys():
+      print('Такой полки не существует!')
+  else:
+      print('Готово!')
+  new_data = {}
+  for Ddata in ('type', 'number', 'name'):
+      new_data[Ddata] = input(f'Введите данные: {Ddata}')
+  docs_add.append(new_data)
+  direct_add[num_shelf] = [new_data['number']]
+  for doc in docs_add:
+      print(doc['type'], doc['number'], doc['name'])
+  print(direct_add)
+# add_doc(documents, directories)
 
 while True:
   print('Возможные команды: p, s, l, a')
@@ -66,4 +59,4 @@ while True:
     (get_list(documents))
     
   elif comand == 'a':
-    print(add_doc(directories))
+    add_doc(documents, directories)
