@@ -56,7 +56,7 @@ while True:
     print(get_shelf_number(directories))
     
   elif comand == 'l':
-    (get_list(documents))
+    get_list(documents)
     
   elif comand == 'a':
     add_doc(documents, directories)
