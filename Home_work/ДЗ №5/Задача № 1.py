@@ -14,6 +14,7 @@ def get_people_name(name):
   for people in name:
     if what_number_doc == people['number']:
       return(people['name'])
+  return('Номера не существует!')
 # print(get_people_name(documents))
 
 def get_shelf_number(shelf_number):
