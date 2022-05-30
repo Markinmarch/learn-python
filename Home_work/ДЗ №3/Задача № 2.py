@@ -32,8 +32,8 @@ cook_book = [
   ]
 ]
 #   Распаковываем из списков списки, из списков списки, из...
-for dish in cook_book:
+for dish, ingrs in cook_book:
   print()
-  print(dish[0])
-  for meal in dish[1]:
-    print(meal[0], meal[1] * person, meal[2])
+  print(f'{dish.capitalize()}:')
+  for name, q, measure in ingrs:
+    print(f'{name.capitalize()}, {q*person} {measure}')
