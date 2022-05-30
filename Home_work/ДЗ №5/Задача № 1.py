@@ -34,16 +34,16 @@ def add_doc(docs_add, direct_add):
   num_shelf = input('Введите номер полки, куда положить документ: ')
   if num_shelf not in direct_add.keys():
       print('Такой полки не существует!')
-  else:
-      print('Готово!')
+      return
   new_data = {}
   for Ddata in ('type', 'number', 'name'):
       new_data[Ddata] = input(f'Введите данные: {Ddata}')
   docs_add.append(new_data)
-  direct_add[num_shelf] = [new_data['number']]
+  direct_add[num_shelf].append(new_data['number'])
   for doc in docs_add:
       print(doc['type'], doc['number'], doc['name'])
   print(direct_add)
+  print('Готово!')
 # add_doc(documents, directories)
 
 while True:
