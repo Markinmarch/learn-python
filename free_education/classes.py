@@ -15,4 +15,4 @@ class Action:
         if person_bag + item['weight_item'] >= 100:
             return
         else:
-            
+            pass
