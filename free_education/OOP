@@ -157,7 +157,7 @@ class SpiderMan (Charecter, Spider):
         if 'web' in self.backpack:
             super().webshoot()
         else:
-            print('Нет!')
+            print('Нет паутины!')
 
 peter_parker = SpiderMan('Peter Parker', 80)
 print(peter_parker.backpack)
