@@ -137,13 +137,11 @@ class Spider:
         print('Двигайтесь на 1 клетку')
 
 class SpiderMan (Charecter, Spider):
-# такой вариан тоже допустим, но зачем нам перезаписывать инициализацию,
-# которая полностью совпадает с родетельским классом?
-    def __init__(self, name, power, energy=100, hands=2):
-        self.name = name
-        self.power = power
-        self.energy = energy
-        self.hands = hands
+
+# функция super() позволяет получить доступ к унаследованным методам, которые 
+# были перезаписаны в дочернем классе
+    def __init__(self, name, power):
+        super().__init__(name, power)
         self.backpack = []
 
     def turn_spider_sense(self):
@@ -157,3 +155,6 @@ class SpiderMan (Charecter, Spider):
 
 peter_parker = SpiderMan('Peter Parker', 80)
 print(peter_parker.backpack)
+print(peter_parker.power)
+print(peter_parker.energy)
+print(peter_parker.hands)
