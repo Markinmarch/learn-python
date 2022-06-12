@@ -153,8 +153,17 @@ class SpiderMan (Charecter, Spider):
         self.webshoot()
         print('Двигайтесь на 3 клетки')
 
+    def webshoot(self):
+        if 'web' in self.backpack:
+            super().webshoot()
+        else:
+            print('Нет паутины!')
+
 peter_parker = SpiderMan('Peter Parker', 80)
 print(peter_parker.backpack)
 print(peter_parker.power)
 print(peter_parker.energy)
 print(peter_parker.hands)
+peter_parker.webshoot()
+peter_parker.backpack.append('web')
+peter_parker.webshoot()
