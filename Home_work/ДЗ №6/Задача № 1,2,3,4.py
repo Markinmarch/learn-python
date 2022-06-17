@@ -92,7 +92,7 @@ best_lecturer_1 = Lecturer('Ivan', 'Ivanov')
 best_lecturer_1.courses_attached += ['Python']
 
 best_lecturer_2 = Lecturer('Petr', 'Petrov')
-best_lecturer_2.courses_attached += ['Java']
+best_lecturer_2.courses_attached += ['Python']
 
 best_lecturer_3 = Lecturer('Semen', 'Zarev')
 best_lecturer_3.courses_attached += ['Python']
@@ -100,11 +100,11 @@ best_lecturer_3.courses_attached += ['Python']
 # Создаем проверяющих и закрепляем их за курсом
 cool_reviewer_1 = Reviewer('Some', 'Buddy')
 cool_reviewer_1.courses_attached += ['Python']
-cool_reviewer_1.courses_attached += ['Java']
+cool_reviewer_1.courses_attached += ['Python']
 
 cool_reviewer_2 = Reviewer('Ostap', 'Bender')
 cool_reviewer_2.courses_attached += ['Python']
-cool_reviewer_2.courses_attached += ['Java']
+cool_reviewer_2.courses_attached += ['Python']
 
 # Создаем студентов и определяем для них изучаемые и завершенные курсы
 student_1 = Student('Denis', 'Sviridov')
@@ -112,7 +112,7 @@ student_1.courses_in_progress += ['Python']
 student_1.finished_courses += ['Введение в программирование']
 
 student_2 = Student('Roman', 'Malikov')
-student_2.courses_in_progress += ['Java']
+student_2.courses_in_progress += ['Python']
 student_2.finished_courses += ['Введение в программирование']
 
 student_3 = Student('Sidor', 'Petrov')
@@ -132,9 +132,9 @@ student_1.rate_hw(best_lecturer_1, 'Python', 7)
 student_1.rate_hw(best_lecturer_1, 'Python', 8)
 student_1.rate_hw(best_lecturer_1, 'Python', 9)
 
-student_2.rate_hw(best_lecturer_2, 'Java', 10)
-student_2.rate_hw(best_lecturer_2, 'Java', 8)
-student_2.rate_hw(best_lecturer_2, 'Java', 9)
+student_2.rate_hw(best_lecturer_2, 'Python', 10)
+student_2.rate_hw(best_lecturer_2, 'Python', 8)
+student_2.rate_hw(best_lecturer_2, 'Python', 9)
 
 student_3.rate_hw(best_lecturer_3, 'Python', 5)
 student_3.rate_hw(best_lecturer_3, 'Python', 6)
@@ -145,9 +145,9 @@ cool_reviewer_1.rate_hw(student_1, 'Python', 8)
 cool_reviewer_1.rate_hw(student_1, 'Python', 9)
 cool_reviewer_1.rate_hw(student_1, 'Python', 10)
 
-cool_reviewer_2.rate_hw(student_2, 'Java', 8)
-cool_reviewer_2.rate_hw(student_2, 'Java', 7)
-cool_reviewer_2.rate_hw(student_2, 'Java', 9)
+cool_reviewer_2.rate_hw(student_2, 'Python', 8)
+cool_reviewer_2.rate_hw(student_2, 'Python', 7)
+cool_reviewer_2.rate_hw(student_2, 'Python', 9)
 
 cool_reviewer_2.rate_hw(student_3, 'Python', 8)
 cool_reviewer_2.rate_hw(student_3, 'Python', 7)
