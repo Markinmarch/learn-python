@@ -216,9 +216,9 @@ def lecturer_rating(lecturer_list, course_name):
 
 
 # Выводим результат подсчета средней оценки по всем студентам для данного курса
-print(f"Средняя оценка для всех студентов по курсу {'Python'}: {student_rating(student_list, 'Python')}")
+print(f"Средняя оценка для всех студентов по курсу {'Python'}: {round(student_rating(student_list, 'Python'), 2)}")
 print()
 
 # Выводим результат подсчета средней оценки по всем лекорам для данного курса
-print(f"Средняя оценка для всех лекторов по курсу {'Python'}: {lecturer_rating(lecturer_list, 'Python')}")
+print(f"Средняя оценка для всех лекторов по курсу {'Python'}: {round(lecturer_rating(lecturer_list, 'Python'), 2)}")
 print()
