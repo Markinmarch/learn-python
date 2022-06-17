@@ -1,14 +1,6 @@
 class Student:
-    def __init__(self, name, surname):
-        """Перегрузка метода _init_ для определения атрибутов класса Student
-        Содержит атрибуты:
-        self.name = name
-        self.surname = surname
-        self.finished_courses = []
-        self.courses_in_progress = []
-        self.grades = {}
-        self.average_rating = float() """
 
+    def __init__(self, name, surname):
         self.name = name
         self.surname = surname
         self.finished_courses = []
@@ -16,16 +8,8 @@ class Student:
         self.grades = {}
         self.average_rating = float()
 
+# Определение средней оценки студента
     def __str__(self):
-        """Реализует определение средней оценки и возвращает характеристики экземпляра класса вида:
-        print(some_student)
-        Имя: Ruoy
-        Фамилия: Eman
-        Средняя оценка за домашние задания: 9.9
-        Курсы в процессе изучения: Python, Git
-        Завершенные курсы: Введение в программирование
-        """
-
         grades_count = 0
         courses_in_progress_string = ', '.join(self.courses_in_progress)
         finished_courses_string = ', '.join(self.finished_courses)
@@ -39,10 +23,8 @@ class Student:
               f'Завершенные курсы: {finished_courses_string}'
         return res
 
+# Выставление оценок лектору
     def rate_hw(self, lecturer, course, grade):
-        """Реализует возможность выставления оценки лектору студентом, если это лектор ведет лекции по данному курсу у этого студента
-        Принимает на вход переменные rate_hw(self, lecturer, course, grade)"""
-
         if isinstance(lecturer, Lecturer) and course in self.courses_in_progress and course in lecturer.courses_attached:
             if course in lecturer.grades:
                 lecturer.grades[course] += [grade]
@@ -51,8 +33,8 @@ class Student:
         else:
             return 'Ошибка'
 
+# Сравнение рейтингов
     def __lt__(self, other):
-        """Реализует сравнение через операторы '<,>' студентов между собой по средней оценке за домашние задания"""
         if not isinstance(other, Student):
             print('Такое сравнение некорректно')
             return
@@ -61,13 +43,6 @@ class Student:
 
 class Mentor:
     def __init__(self, name, surname):
-        """Перегрузка метода _init_ для определения атрибутов класса Mentor
-        Содержит атрибуты:
-        self.name = name
-        self.surname = surname
-        self.courses_attached = []
-        """
-
         self.name = name
         self.surname = surname
         self.courses_attached = []
@@ -76,26 +51,11 @@ class Mentor:
 class Lecturer(Mentor):
 
     def __init__(self, name, surname):
-        """Перегрузка метода _init_ для определения атрибутов класса Mentor
-        Содержит атрибуты:
-        self.average_rating = float()
-        self.grades = {}
-        в том числе родительского класса:
-        self.name = name
-        self.surname = surname
-        self.courses_attached = []
-        """
-
         super().__init__(name, surname)
         self.average_rating = float()
         self.grades = {}
 
     def __str__(self):
-        """Возвращает характеристики экземпляра класса вида:
-            print(some_reviewer)
-            Имя: Some
-            Фамилия: Buddy
-        """
         grades_count = 0
         for k in self.grades:
             grades_count += len(self.grades[k])
@@ -103,8 +63,8 @@ class Lecturer(Mentor):
         res = f'Имя: {self.name}\nФамилия: {self.surname}\nСредняя оценка за лекции: {self.average_rating}'
         return res
 
+# Сравнение рейтинка лекторов
     def __lt__(self, other):
-        """Реализует сравнение через операторы '<,>' лекторов между собой по средней оценке за лекции"""
         if not isinstance(other, Lecturer):
             print('Такое сравнение некорректно')
             return
@@ -112,12 +72,9 @@ class Lecturer(Mentor):
 
 
 class Reviewer(Mentor):
-    def rate_hw(self, student, course, grade):
-        """Реализует возможность выставления оценки студенту за домашние задания,
-        если этот проверяющий закреплен за этим студентом по данному курсу,
-        или возвращает ошибку.
-        Принимает на вход переменные rate_hw(self, student, course, grade)"""
 
+# Выставляем оценки судентам 
+    def rate_hw(self, student, course, grade):
         if isinstance(student, Student) and course in self.courses_attached and course in student.courses_in_progress:
             if course in student.grades:
                 student.grades[course] += [grade]
@@ -127,13 +84,6 @@ class Reviewer(Mentor):
             return 'Ошибка'
 
     def __str__(self):
-        """Реализует определение средней оценки и возвращает характеристики экземпляра класса вида:
-        print(some_lecturer)
-        Имя: Some
-        Фамилия: Buddy
-        Средняя оценка за лекции: 9.9
-        """
-
         res = f'Имя: {self.name}\nФамилия: {self.surname}'
         return res
 
@@ -238,10 +188,6 @@ lecturer_list = [best_lecturer_1, best_lecturer_2, best_lecturer_3]
 # в качестве аргументов принимает список студентов и название курса
 
 def student_rating(student_list, course_name):
-    """Функция для подсчета средней оценки за домашние задания
-    по всем студентам в рамках конкретного курса
-    в качестве аргументов принимает список студентов и название курса"""
-
     sum_all = 0
     count_all = 0
     for stud in student_list:
@@ -256,9 +202,6 @@ def student_rating(student_list, course_name):
 # в качестве аргумента принимает список лекторов и название курса
 
 def lecturer_rating(lecturer_list, course_name):
-    """Функция для подсчета средней оценки за лекции всех лекторов в рамках курса
-     в качестве аргумента принимает список лекторов и название курса"""
-
     sum_all = 0
     count_all = 0
     for lect in lecturer_list:
