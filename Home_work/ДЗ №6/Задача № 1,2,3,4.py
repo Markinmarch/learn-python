@@ -63,7 +63,7 @@ class Lecturer(Mentor):
         res = f'Имя: {self.name}\nФамилия: {self.surname}\nСредняя оценка за лекции: {self.average_rating}'
         return res
 
-# Сравнение рейтинка лекторов
+# Сравнение рейтинга лекторов
     def __lt__(self, other):
         if not isinstance(other, Lecturer):
             print('Такое сравнение некорректно')
