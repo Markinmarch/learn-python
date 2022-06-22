@@ -1,15 +1,10 @@
-def open_file():
-    with open('DZ №7\dish_list.txt', 'r', encoding='utf-8') as file:
-        txt = {file.read()}
-        print(txt)
-        return
+from ctypes import Structure
 
-open_file()
 
-def data_structure():
-    cook_book = {
-        open_file
-    }
-    print(cook_book)
+def open_file(file_name):
+    with open(file_name, 'r', encoding='utf-8') as file:
+        return file.read()
+# file_show = open_file('DZ №7\dish_list.txt')
+# print(file_show)
 
-data_structure()
+# def split_file(split_text):
