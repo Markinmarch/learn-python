@@ -1,6 +1,6 @@
 # открытие файла и чтение:
 def open_cook_book():
-    with open('ДЗ №7\dish_list.txt', 'r', encoding='utf-8') as file:
+    with open('DZ №7\dish_list.txt', 'r', encoding='utf-8') as file:
         lines = file.readlines()
         print(lines[0])
         # print(lines.index[0])
