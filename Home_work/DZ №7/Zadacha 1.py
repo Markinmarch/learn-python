@@ -9,7 +9,6 @@ file_show = open_file('DZ №7\dish_list.txt')
 def structure_data(dish_list):
     for item in dish_list:
         res = item.split('\n')
-        print(res)
         for i in res[2:]:
             ras = i.split(' | ')
             cook_book = {res[0]:[{'ingredient_name': ras[0]}, {'quantity': ras[1]}, {'measure': ras[2]}]}
