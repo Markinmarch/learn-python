@@ -1,15 +1,43 @@
-# открываем и читаем файл
+# открываем, читаем файл
 def open_file(file_name):
     with open(file_name, 'r', encoding='utf-8') as file:
-        return file.read()
-# file_show = open_file('DZ №7\dish_list.txt').strip()
-# print(file_show)
+        return file.read().strip().split('\n\n')
+        
+file_show = open_file('DZ №7\dish_list.txt')
 
-# превращаем текст в список для дальнейшей работы
-def split_file(split_text):
-    big_dish_list = split_text.split('\n')
-    print(big_dish_list)
-# q = split_file(file_show)
+# структурируем данные в требуемый вид с учётом задания
+def structure_data(dish_list):
+    for item in dish_list:
+        res = item.split('\n')
+        print(res)
+        for i in res[2:]:
+            ras = i.split(' | ')
+            cook_book = {res[0]:[{'ingredient_name': ras[0]}, {'quantity': ras[1]}, {'measure': ras[2]}]}
+            print(cook_book)
+structure_data(file_show)
 
-# структура данных
-def structure_data()
+# def read_file(file_path):
+#     with open(file_path, 'r', encoding='utf-8') as file:
+#         return file.read()
+ 
+# def split_text(text):
+#     return [i.splitlines() for i in text.split('\n\n')]
+ 
+# def split_ingredients_data(lst):
+#     return lst[:1] + [i.replace('', '').split(' | ') for i in lst[2:]]
+ 
+# def lst_to_dict(lst):
+#     return {lst[0]: [{'ingredient_name': i[0], 'quantity': int(i[1]), 'measure': i[2]} for i in lst[1:]]}
+ 
+# def data_loads(file_path):
+#     out = {}
+#     text = read_file(file_path)
+#     dish_list = split_text(text)
+#     format_dish_list = [split_ingredients_data(i) for i in dish_list]
+#     for i in format_dish_list:
+#         out.update(lst_to_dict(i))
+#     return out
+ 
+# res = data_loads('DZ №7\dish_list.txt')
+ 
+# print(res)
