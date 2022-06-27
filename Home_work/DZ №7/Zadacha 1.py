@@ -16,9 +16,9 @@ def structure_data_value(file_name, dish):
 
 # структурируем данные в требуемый вид с учётом задания
 # создание key
-# def structure_data_value(file_name):
+# def structure_data_key(file_name):
 
-
+# создать для dish функцию, которая будет по сути индексировать номера блюд!!!
     
 
 structure_data_value(file_show)
