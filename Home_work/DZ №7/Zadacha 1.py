@@ -6,17 +6,19 @@ def open_file(file_name):
 file_show = open_file('Home_work\DZ №7\dish_list.txt')
 
 # структурируем данные в требуемый вид с учётом задания
-def structure_data(file_name):
-    r = file_name[0].split('\n')
-    # print(r[2:])
+# создание value
+def structure_data_value(file_name, dish):
+    r = file_name[dish].split('\n')
     for i in r[2:]:
-        l = []
         x = i.split(' | ')
-        l.append(i)
-        print(x)
+        d = {'ingredient_name': x[0], 'quantity': x[1], 'measure': x[2]}
+        print(d)
 
+# структурируем данные в требуемый вид с учётом задания
+# создание key
+# def structure_data_value(file_name):
 
 
     
 
-structure_data(file_show)
+structure_data_value(file_show)
