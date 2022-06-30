@@ -23,14 +23,10 @@ def structure_data_value(ready_file, num):
     value_name = ready_file[num].split('\n')
     for item in value_name[2:]:
         indigrients = item.split(' | ')
-        lst = []
         dict_dish = {'ingredient_name': indigrients[0], 'quantity': indigrients[1], 'measure': indigrients[2]}
-        lst.append(dict_dish)
-        print(lst)
-    #     key_name = ready_file[num].split('\n')
-    #     cook_book = {key_name[0]:[dict_dish for i in indigrients]}
-    # cook_book.update()
-    # print(cook_book)
+        key_name = ready_file[num].split('\n')
+        cook_book = {key_name[0]:[dict_dish for i in indigrients]}
+    print(cook_book)
 
         # print(key_name[0])
         # print(dict_dish)
