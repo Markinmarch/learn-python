@@ -1,55 +1,32 @@
-# открываем, читаем файл
-import enum
+# открываем файл и читаем
+def read_file(file_path):
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return file.read()
 
-def open_file(name_file):
-    with open(name_file, 'r', encoding='utf-8') as file:
-        return file.read().strip().split('\n\n')
-        
-file_show = open_file('Home_work\DZ №7\dish_list.txt')
+# приводим в читабельный вид 
+def split_text(text):
+    return [i.splitlines() for i in text.split('\n\n')]
 
-# cоздаём переменную num для перебирания блюд
-# def dish_rate(ready_file):
-#     numb = range(len(ready_file)) 
-#     for number in numb:
-#         x = number
-#         print(x)
+# выводим отдельно индигриенты
+def split_ingredients_data(lst):
+    return lst[:1] + [i.split(' | ') for i in lst[2:]]
 
-# num = dish_rate(file_show)
+# структурируем данные согласно задания
+def lst_to_dict(lst):
+    return {lst[0]: 
+    [{'ingredient_name': i[0], 'quantity': int(i[1]), 'measure': i[2]} for i in lst[1:]]
+    }
 
-num = 0
-# структурируем данные в требуемый вид с учётом задания
-# создание value
-def structure_data_value(ready_file, num):
-    value_name = ready_file[num].split('\n')
-    for item in value_name[2:]:
-        indigrients = item.split(' | ')
-        dict_dish = {'ingredient_name': indigrients[0], 'quantity': indigrients[1], 'measure': indigrients[2]}
-        key_name = ready_file[num].split('\n')
-        cook_book = {key_name[0]:[dict_dish for i in indigrients]}
-    print(cook_book)
-
-        # print(key_name[0])
-        # print(dict_dish)
-
-# структурируем данные в требуемый вид с учётом задания
-# создание key
-def structure_data_key(ready_file, num):
-    key_name = ready_file[num].split('\n')
-    print(key_name[0])
-
-
-# structure_data_key(file_show, num)
-structure_data_value(file_show, num)
-
-# cook_book = {w : q}
-# cook_book.update()
-# print(cook_book)
-
-# def huef(i):
-#     def qwert(x):
-#         return x + i
-#     return qwert
-# new = huef(100)
-# print(new(200))
-
-
+# создаём словарь, вносим в него параметры 
+def data_loads(file_path):
+    cook_book = {}
+    text = read_file(file_path)
+    dish_list = split_text(text)
+    format_dish_list = [split_ingredients_data(i) for i in dish_list]
+    for i in format_dish_list:
+        cook_book.update(lst_to_dict(i))
+    return cook_book
+ 
+res = data_loads('Home_work\DZ №7\dish_list.txt')
+ 
+print(res)
