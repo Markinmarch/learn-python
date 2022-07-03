@@ -29,4 +29,22 @@ def data_loads(file_path):
  
 res = data_loads('Home_work\DZ №7\dish_list.txt')
  
-print(res)
+# cook_book = print(res)
+
+# def dishes(cook_book):
+#     menu = cook_book.keys()
+#     menu = '\n'.join(menu)
+#     print(f'Наше меню:\n{menu}')
+#     dish_list = input('Введите блюда через запятую (напр. \"Омлет, Фахитос\"): ').split(', ')
+#     return dish_list
+
+# def person_count():
+#     county = int(input('Введите количество человек: '))
+#     return county
+
+# ready_dishes = dishes(res)
+# ready_count = person_count()
+
+# def get_shop_list_by_dishes(dishes, person_count):
+
+print(res.get('Омлет'))
