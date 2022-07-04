@@ -7,7 +7,7 @@ def read_file(file_path):
 def split_text(text):
     return [i.splitlines() for i in text.split('\n\n')]
 
-# выводим отдельно индигриенты
+# выводим отдельно рецепты по количеству индигриентов
 def split_ingredients_data(lst):
     return lst[:1] + [i.split(' | ') for i in lst[2:]]
 
@@ -31,20 +31,38 @@ res = data_loads('Home_work\DZ №7\dish_list.txt')
  
 # cook_book = print(res)
 
-# def dishes(cook_book):
-#     menu = cook_book.keys()
-#     menu = '\n'.join(menu)
-#     print(f'Наше меню:\n{menu}')
-#     dish_list = input('Введите блюда через запятую (напр. \"Омлет, Фахитос\"): ').split(', ')
-#     return dish_list
+def dishes(cook_book):
+    menu = cook_book.keys()
+    menu_show = ', '.join(menu)
+    print(f'Наше меню:\n{menu_show}')
+    while True:
+        dish_list = input('Введите блюда через запятую (напр. \"Омлет, Фахитос\"): ').split(', ')
+        for item in dish_list:
+            if item in menu_show:
+                return dish_list
+            else:
+                print('Вы ввели неправильно либо несуществующие блюда, повторите попытку снова!')
+            
 
-# def person_count():
-#     county = int(input('Введите количество человек: '))
-#     return county
+def person_count():
+    county = int(input('Введите количество человек: '))
+    return county
 
-# ready_dishes = dishes(res)
-# ready_count = person_count()
+ready_dishes = dishes(res)
+ready_count = person_count()
 
-# def get_shop_list_by_dishes(dishes, person_count):
+def get_shop_list_by_dishes(dishes, person_count):
+    for item in dishes:
+        x = res.get(item)
+        for i in x:
+            # print(i.get('ingredient_name'))
+            # print(i.get('ingredient_name'), int(i.get('quantity'))* person_count)
+            d = {i.get('ingredient_name'): i}
+            print(d)
 
-print(res.get('Омлет'))
+get_shop_list_by_dishes(ready_dishes, ready_count)
+
+# Omlet = res.get('Омлет') 
+# Fahitos = res.get('Фахитос')
+# аqwe = Omlet + Fahitos
+# print(аqwe)
