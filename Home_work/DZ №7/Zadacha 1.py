@@ -3,11 +3,11 @@ def read_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         return file.read()
 
-# приводим в читабельный вид 
+# итерируем по строкам 
 def split_text(text):
     return [i.splitlines() for i in text.split('\n\n')]
 
-# выводим отдельно рецепты по количеству индигриентов
+# делаем шаг строк согласно количеству индигриентов
 def split_ingredients_data(lst):
     return lst[:1] + [i.split(' | ') for i in lst[2:]]
 
@@ -31,10 +31,15 @@ res = data_loads('Home_work\DZ №7\dish_list.txt')
  
 # cook_book = print(res)
 
+def person_count():
+    county = int(input('Введите количество человек: '))
+    return county
+
 def dishes(cook_book):
     menu = cook_book.keys()
     menu_show = ', '.join(menu)
     print(f'Наше меню:\n{menu_show}')
+
     while True:
         dish_list = input('Введите блюда через запятую (напр. \"Омлет, Фахитос\"): ').split(', ')
         for item in dish_list:
@@ -43,26 +48,23 @@ def dishes(cook_book):
             else:
                 print('Вы ввели неправильно либо несуществующие блюда, повторите попытку снова!')
             
-
-def person_count():
-    county = int(input('Введите количество человек: '))
-    return county
-
 ready_dishes = dishes(res)
 ready_count = person_count()
 
 def get_shop_list_by_dishes(dishes, person_count):
-    for item in dishes:
-        x = res.get(item)
-        for i in x:
-            # print(i.get('ingredient_name'))
-            # print(i.get('ingredient_name'), int(i.get('quantity'))* person_count)
-            d = {i.get('ingredient_name'): i}
-            print(d)
-
+    x = (range(len(dishes)))
+    for k in x:
+        l = []
+        t = res.get(dishes[k])
+        l.append(t)
+        print(l)
 get_shop_list_by_dishes(ready_dishes, ready_count)
 
-# Omlet = res.get('Омлет') 
-# Fahitos = res.get('Фахитос')
-# аqwe = Omlet + Fahitos
-# print(аqwe)
+
+    # for item in dishes:
+    #     item = res.get(item)
+    #     for i in item:
+    #         from_key = i.get('ingredient_name')
+    #         from_how = {'quantity': int(i.get('quantity')*person_count), 'measure': i.get('measure')}
+            
+    # return
