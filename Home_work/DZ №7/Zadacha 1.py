@@ -29,17 +29,18 @@ def data_loads(file_path):
  
 res = data_loads('Home_work\DZ №7\dish_list.txt')
  
-# cook_book = print(res)
+cook_book = print(res)
 
+# функция ввода количества персон
 def person_count():
     county = int(input('Введите количество человек: '))
     return county
 
+#функция ввода блюд
 def dishes(cook_book):
     menu = cook_book.keys()
     menu_show = ', '.join(menu)
     print(f'Наше меню:\n{menu_show}')
-
     while True:
         dish_list = input('Введите блюда через запятую (напр. \"Омлет, Фахитос\"): ').split(', ')
         for item in dish_list:
@@ -51,20 +52,13 @@ def dishes(cook_book):
 ready_dishes = dishes(res)
 ready_count = person_count()
 
+# функция вызова требуемых индигриентов
 def get_shop_list_by_dishes(dishes, person_count):
-    x = (range(len(dishes)))
-    for k in x:
-        l = []
-        t = res.get(dishes[k])
-        l.append(t)
-        print(l)
+    for item in dishes:
+        item = res.get(item)
+        for i in item:
+            from_key = i.get('ingredient_name')
+            from_how = {'quantity': int(i.get('quantity')*person_count), 'measure': i.get('measure')}
+            print(from_key, from_how)
+
 get_shop_list_by_dishes(ready_dishes, ready_count)
-
-
-    # for item in dishes:
-    #     item = res.get(item)
-    #     for i in item:
-    #         from_key = i.get('ingredient_name')
-    #         from_how = {'quantity': int(i.get('quantity')*person_count), 'measure': i.get('measure')}
-            
-    # return
