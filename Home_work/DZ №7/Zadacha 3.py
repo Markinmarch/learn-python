@@ -1,6 +1,6 @@
 catal_ad = 'Home_work/DZ №7/text/'
 
-# функция открывает каталог с файлами
+# функция открывает каталог с  файлами 
 def mod_os(adress):
     import os
     file_list = os.listdir(adress)
