@@ -11,7 +11,7 @@ def write_file(file_path):
     with open(file_path, 'w', encoding='utf-8') as file:
         return file.write('new')
 
-adress_file = read_file('Home_work/DZ №7/text')
+adress_file = read_file('Home_work//DZ №7//text')
 
 read_file(adress_file)
 
