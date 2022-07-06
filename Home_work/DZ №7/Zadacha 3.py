@@ -1,24 +1,11 @@
-# открываем и читайем файлы
-import os
-
+# открываем файл и читаем
 def read_file(file_path):
-    for file_name in os.listdir(file_path):
-        with open(os.path.join(file_path, file_name), 'r', encoding='utf-8') as file:
-            print(len(file.read().strip().split('\n')))
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return file.read()
 
-# записываем в новый файл
+# открываем файл и читаем
 def write_file(file_path):
-    with open(file_path, 'w', encoding='utf-8') as file:
-        return file.write('new')
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return file.write()
 
-adress_file = read_file('Home_work//DZ №7//text')
-
-read_file(adress_file)
-
-# считаем количество строк и сравниваем их
-def how_lines(file_path):
-    return len(file_path.strip().split('\n'))
-
-# print(how_lines(adress_file))
-
-
+file = read_file('Home_work\DZ №7\text\1.txt')
