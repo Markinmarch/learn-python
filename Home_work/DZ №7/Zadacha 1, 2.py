@@ -26,9 +26,11 @@ def data_loads(file_path):
     for i in format_dish_list:
         cook_book.update(lst_to_dict(i))
     return cook_book
- 
+
+# переменная, которая запускает файл 
 res = data_loads('Home_work\DZ №7\dish_list.txt')
- 
+
+# переменная, которая выводит словарь 
 cook_book = print(res)
 
 # функция ввода количества персон
@@ -61,4 +63,4 @@ def get_shop_list_by_dishes(dishes, person_count):
             from_how = {'quantity': int(i.get('quantity')*person_count), 'measure': i.get('measure')}
             print(from_key, from_how)
 
-get_shop_list_by_dishes(ready_dishes, ready_count)
+get_shop_list_by_dishes(dishes(res), person_count())
