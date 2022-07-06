@@ -63,4 +63,4 @@ def get_shop_list_by_dishes(dishes, person_count):
             from_how = {'quantity': int(i.get('quantity')*person_count), 'measure': i.get('measure')}
             print(from_key, from_how)
 
-get_shop_list_by_dishes(dishes(res), person_count())
+get_shop_list_by_dishes(ready_dishes, ready_count)
