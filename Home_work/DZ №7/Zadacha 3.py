@@ -9,12 +9,12 @@ file_list = mod_os(catal_ad)
 
 def open_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
-        return file.readlines()
+        return file.read().strip()
 
 def huef(lst, adress):
-    for i in range(0, len(lst)):
-        read = open_file(adress + lst[i])
-        print(read)
+    read = [open_file(adress + lst[i]) for i in range(0, len(lst))]
+    ready_text = sorted(read, key = len)
+    return ready_text
 read = huef(file_list, catal_ad)
 
 # def how_lines(read):
