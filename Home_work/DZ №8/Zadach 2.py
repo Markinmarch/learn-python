@@ -32,7 +32,7 @@ class YaUploader:
 if __name__ == '__main__':
     # Получаем путь к загружаемому файлу и токен от пользователя
     path_to_file = 'C:/Users/User/Desktop/Study/netology_learning/Home_work/DZ №8/qwerty.txt'
-    token = 'AQAAAAA6JGSpAADLW9-h3KotoUvEhl8HN9VNgOg'
+    token = ''
     # Определяем экземпляр класса для токена пользователя
     uploader = YaUploader(token)
     # Загружаем файл на диск
