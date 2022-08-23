@@ -1,54 +1,7 @@
--- DROP SCHEMA "App01";
+-- DROP SCHEMA public;
 
-CREATE SCHEMA "App01" AUTHORIZATION postgres;
--- "App01".track definition
-
--- Drop table
-
--- DROP TABLE track;
-
-CREATE TABLE track (
-	id int4 NOT NULL,
-	track_name varchar(40) NOT NULL,
-	duration time NOT NULL,
-	album_name varchar(40) NOT NULL,
-	CONSTRAINT id_track PRIMARY KEY (id)
-);
-
-
--- "App01".collection definition
-
--- Drop table
-
--- DROP TABLE collection;
-
-CREATE TABLE collection (
-	id int4 NOT NULL,
-	collection_name varchar(40) NOT NULL,
-	collection_year int4 NOT NULL,
-	id_track int4 NOT NULL,
-	CONSTRAINT id_collection PRIMARY KEY (id),
-	CONSTRAINT collection_fk FOREIGN KEY (id_track) REFERENCES track(id)
-);
-
-
--- "App01".album definition
-
--- Drop table
-
--- DROP TABLE album;
-
-CREATE TABLE album (
-	id int4 NOT NULL,
-	album_name varchar(40) NOT NULL,
-	album_year int4 NOT NULL,
-	id_artist int4 NOT NULL,
-	id_track int4 NOT NULL,
-	CONSTRAINT id_album PRIMARY KEY (id)
-);
-
-
--- "App01".artist definition
+CREATE SCHEMA public AUTHORIZATION postgres;
+-- public.artist definition
 
 -- Drop table
 
@@ -56,14 +9,27 @@ CREATE TABLE album (
 
 CREATE TABLE artist (
 	id int4 NOT NULL,
-	artist_name varchar(40) NOT NULL,
-	id_ganre int4 NOT NULL,
-	id_album int4 NOT NULL,
-	CONSTRAINT id_artist PRIMARY KEY (id)
+	"name" varchar(40) NOT NULL,
+	CONSTRAINT artist_pk PRIMARY KEY (id)
 );
 
 
--- "App01".ganre definition
+-- public.track definition
+
+-- Drop table
+
+-- DROP TABLE track;
+
+CREATE TABLE track (
+	id int4 NOT NULL,
+	"name" varchar(40) NOT NULL,
+	duration time NOT NULL,
+	album_name varchar(40) NOT NULL,
+	CONSTRAINT track_pk PRIMARY KEY (id)
+);
+
+
+-- public.ganre definition
 
 -- Drop table
 
@@ -71,24 +37,78 @@ CREATE TABLE artist (
 
 CREATE TABLE ganre (
 	id int4 NOT NULL,
-	ganre_name varchar(40) NOT NULL,
-	id_artist int4 NOT NULL,
-	CONSTRAINT id_ganre PRIMARY KEY (id)
+	"name" varchar(40) NOT NULL,
+	CONSTRAINT ganre_pk PRIMARY KEY (id)
 );
 
 
--- "App01".album foreign keys
+-- public.collection definition
 
-ALTER TABLE "App01".album ADD CONSTRAINT album_fk FOREIGN KEY (id_artist) REFERENCES artist(id);
-ALTER TABLE "App01".album ADD CONSTRAINT album_fk_1 FOREIGN KEY (id_track) REFERENCES track(id);
+-- Drop table
+
+-- DROP TABLE collection;
+
+CREATE TABLE collection (
+	id int4 NOT NULL,
+	"name" varchar(40) NOT NULL,
+	"year" int4 NOT NULL,
+	CONSTRAINT collection_pk PRIMARY KEY (id)
+);
 
 
--- "App01".artist foreign keys
+-- public.album definition
 
-ALTER TABLE "App01".artist ADD CONSTRAINT artist_fk FOREIGN KEY (id_ganre) REFERENCES ganre(id);
-ALTER TABLE "App01".artist ADD CONSTRAINT artist_fk_1 FOREIGN KEY (id_album) REFERENCES album(id);
+-- Drop table
+
+-- DROP TABLE album;
+
+CREATE TABLE album (
+	id int4 NOT NULL,
+	"name" varchar(40) NOT NULL,
+	"year" int4 NOT NULL,
+	id_track int4 NOT NULL,
+	CONSTRAINT album_pk PRIMARY KEY (id),
+	CONSTRAINT album_fk FOREIGN KEY (id_track) REFERENCES track(id)
+);
 
 
--- "App01".ganre foreign keys
+-- public.artist_ganre definition
 
-ALTER TABLE "App01".ganre ADD CONSTRAINT ganre_fk FOREIGN KEY (id_artist) REFERENCES artist(id);
+-- Drop table
+
+-- DROP TABLE artist_ganre;
+
+CREATE TABLE artist_ganre (
+	id_artist int4 NOT NULL,
+	id_ganre int4 NOT NULL,
+	CONSTRAINT artist_ganre_fk FOREIGN KEY (id_artist) REFERENCES artist(id),
+	CONSTRAINT artist_ganre_fk_1 FOREIGN KEY (id_ganre) REFERENCES ganre(id)
+);
+
+
+-- public.artist_album definition
+
+-- Drop table
+
+-- DROP TABLE artist_album;
+
+CREATE TABLE artist_album (
+	id_artist int4 NOT NULL,
+	id_album int4 NOT NULL,
+	CONSTRAINT artist_album_fk FOREIGN KEY (id_artist) REFERENCES artist(id),
+	CONSTRAINT artist_album_fk_1 FOREIGN KEY (id_album) REFERENCES album(id)
+);
+
+
+-- public.track_collection definition
+
+-- Drop table
+
+-- DROP TABLE track_collection;
+
+CREATE TABLE track_collection (
+	id_track int4 NOT NULL,
+	id_collection int4 NOT NULL,
+	CONSTRAINT newtable_fk FOREIGN KEY (id_track) REFERENCES track(id),
+	CONSTRAINT track_collection_fk FOREIGN KEY (id_collection) REFERENCES collection(id)
+);
