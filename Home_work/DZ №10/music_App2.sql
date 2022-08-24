@@ -7,7 +7,7 @@ CREATE SCHEMA public AUTHORIZATION postgres;
 
 -- DROP TABLE artist;
 
-CREATE TABLE artist (
+CREATE TABLE IF NOT EXISTS artist (
 	id int4 NOT NULL,
 	"name" varchar(40) NOT NULL,
 	CONSTRAINT artist_pk PRIMARY KEY (id)
@@ -20,7 +20,7 @@ CREATE TABLE artist (
 
 -- DROP TABLE track;
 
-CREATE TABLE track (
+CREATE TABLE IF NOT EXISTS track (
 	id int4 NOT NULL,
 	"name" varchar(40) NOT NULL,
 	duration time NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE track (
 
 -- DROP TABLE ganre;
 
-CREATE TABLE ganre (
+CREATE TABLE IF NOT EXISTS ganre (
 	id int4 NOT NULL,
 	"name" varchar(40) NOT NULL,
 	CONSTRAINT ganre_pk PRIMARY KEY (id)
@@ -48,7 +48,7 @@ CREATE TABLE ganre (
 
 -- DROP TABLE collection;
 
-CREATE TABLE collection (
+CREATE TABLE IF NOT EXISTS collection (
 	id int4 NOT NULL,
 	"name" varchar(40) NOT NULL,
 	"year" int4 NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE collection (
 
 -- DROP TABLE album;
 
-CREATE TABLE album (
+CREATE TABLE IF NOT EXISTS album (
 	id int4 NOT NULL,
 	"name" varchar(40) NOT NULL,
 	"year" int4 NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE album (
 
 -- DROP TABLE artist_ganre;
 
-CREATE TABLE artist_ganre (
+CREATE TABLE IF NOT EXISTS artist_ganre (
 	id_artist int4 NOT NULL,
 	id_ganre int4 NOT NULL,
 	CONSTRAINT artist_ganre_fk FOREIGN KEY (id_artist) REFERENCES artist(id),
@@ -92,7 +92,7 @@ CREATE TABLE artist_ganre (
 
 -- DROP TABLE artist_album;
 
-CREATE TABLE artist_album (
+CREATE TABLE IF NOT EXISTS artist_album (
 	id_artist int4 NOT NULL,
 	id_album int4 NOT NULL,
 	CONSTRAINT artist_album_fk FOREIGN KEY (id_artist) REFERENCES artist(id),
@@ -106,7 +106,7 @@ CREATE TABLE artist_album (
 
 -- DROP TABLE track_collection;
 
-CREATE TABLE track_collection (
+CREATE TABLE IF NOT EXISTS track_collection (
 	id_track int4 NOT NULL,
 	id_collection int4 NOT NULL,
 	CONSTRAINT newtable_fk FOREIGN KEY (id_track) REFERENCES track(id),
