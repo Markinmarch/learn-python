@@ -1,114 +1,50 @@
--- DROP SCHEMA public;
-
 CREATE SCHEMA public AUTHORIZATION postgres;
--- public.artist definition
-
--- Drop table
-
--- DROP TABLE artist;
 
 CREATE TABLE IF NOT EXISTS artist (
-	id int4 NOT NULL,
+	id serial PRIMARY KEY NOT NULL,
 	"name" varchar(40) NOT NULL,
-	CONSTRAINT artist_pk PRIMARY KEY (id)
 );
 
-
--- public.track definition
-
--- Drop table
-
--- DROP TABLE track;
-
 CREATE TABLE IF NOT EXISTS track (
-	id int4 NOT NULL,
+	id serial PRIMARY KEY NOT NULL,
 	"name" varchar(40) NOT NULL,
 	duration time NOT NULL,
 	album_name varchar(40) NOT NULL,
-	CONSTRAINT track_pk PRIMARY KEY (id)
 );
-
-
--- public.ganre definition
-
--- Drop table
-
--- DROP TABLE ganre;
 
 CREATE TABLE IF NOT EXISTS ganre (
-	id int4 NOT NULL,
-	"name" varchar(40) NOT NULL,
-	CONSTRAINT ganre_pk PRIMARY KEY (id)
+	id serial PRIMARY KEY NOT NULL,
+	"name" VARCHAR(40) NOT NULL,
 );
-
-
--- public.collection definition
-
--- Drop table
-
--- DROP TABLE collection;
 
 CREATE TABLE IF NOT EXISTS collection (
-	id int4 NOT NULL,
+	id serial PRIMARY KEY NOT NULL,
 	"name" varchar(40) NOT NULL,
-	"year" int4 NOT NULL,
-	CONSTRAINT collection_pk PRIMARY KEY (id)
+	"year" INTEGER NOT NULL,
 );
-
-
--- public.album definition
-
--- Drop table
-
--- DROP TABLE album;
 
 CREATE TABLE IF NOT EXISTS album (
-	id int4 NOT NULL,
-	"name" varchar(40) NOT NULL,
-	"year" int4 NOT NULL,
-	id_track int4 NOT NULL,
-	CONSTRAINT album_pk PRIMARY KEY (id),
-	CONSTRAINT album_fk FOREIGN KEY (id_track) REFERENCES track(id)
+	id serial PRIMARY KEY NOT NULL,
+	"name" VARCHAR(40) NOT NULL,
+	"year" INTEGER NOT NULL,
+	id_track FOREIGN KEY NOT NULL,
+	FOREIGN KEY (id_track) REFERENCES track(id)
 );
-
-
--- public.artist_ganre definition
-
--- Drop table
-
--- DROP TABLE artist_ganre;
 
 CREATE TABLE IF NOT EXISTS artist_ganre (
-	id_artist int4 NOT NULL,
-	id_ganre int4 NOT NULL,
-	CONSTRAINT artist_ganre_fk FOREIGN KEY (id_artist) REFERENCES artist(id),
-	CONSTRAINT artist_ganre_fk_1 FOREIGN KEY (id_ganre) REFERENCES ganre(id)
+	id_artist INTEGER REFERENCES artist(id),
+	id_ganre INTEGER REFERENCES ganre(id),
+	CONSTRAINT pk PRIMARY KEY (id_artist, id_ganre)
 );
-
-
--- public.artist_album definition
-
--- Drop table
-
--- DROP TABLE artist_album;
 
 CREATE TABLE IF NOT EXISTS artist_album (
-	id_artist int4 NOT NULL,
-	id_album int4 NOT NULL,
-	CONSTRAINT artist_album_fk FOREIGN KEY (id_artist) REFERENCES artist(id),
-	CONSTRAINT artist_album_fk_1 FOREIGN KEY (id_album) REFERENCES album(id)
+	id_artist INTEGER REFERENCES artist(id),
+	id_album INTEGER REFERENCES album(id),
+	CONSTRAINT pk PRIMARY KEY (id_artist, id_album)
 );
 
-
--- public.track_collection definition
-
--- Drop table
-
--- DROP TABLE track_collection;
-
 CREATE TABLE IF NOT EXISTS track_collection (
-	id_track int4 NOT NULL,
-	id_collection int4 NOT NULL,
-	CONSTRAINT newtable_fk FOREIGN KEY (id_track) REFERENCES track(id),
-	CONSTRAINT track_collection_fk FOREIGN KEY (id_collection) REFERENCES collection(id)
+	id_track INTEGER REFERENCES id_track(id),
+	id_collection INTEGER REFERENCES id_collection(id),
+	CONSTRAINT pk PRIMARY KEY (id_track, id_collection)
 );
