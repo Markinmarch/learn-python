@@ -8,7 +8,7 @@ CREATE SCHEMA public AUTHORIZATION postgres;
 -- DROP TABLE artist;
 
 CREATE TABLE artist (
-	id int4 NOT NULL,
+	id INTEGER NOT NULL,
 	"name" varchar(40) NOT NULL,
 	CONSTRAINT artist_pk PRIMARY KEY (id)
 );
@@ -21,9 +21,9 @@ CREATE TABLE artist (
 -- DROP TABLE collection;
 
 CREATE TABLE collection (
-	id int4 NOT NULL,
+	id INTEGER NOT NULL,
 	"name" varchar(40) NOT NULL,
-	"year" int4 NOT NULL,
+	"year" INTEGER NOT NULL,
 	CONSTRAINT collection_pk PRIMARY KEY (id)
 );
 
@@ -35,7 +35,7 @@ CREATE TABLE collection (
 -- DROP TABLE ganre;
 
 CREATE TABLE ganre (
-	id int4 NOT NULL,
+	id INTEGER NOT NULL,
 	"name" varchar(40) NOT NULL,
 	CONSTRAINT ganre_pk PRIMARY KEY (id)
 );
@@ -48,7 +48,7 @@ CREATE TABLE ganre (
 -- DROP TABLE track;
 
 CREATE TABLE track (
-	id int4 NOT NULL,
+	id INTEGER NOT NULL,
 	"name" varchar(40) NOT NULL,
 	duration time NOT NULL,
 	album_name varchar(40) NOT NULL,
@@ -63,10 +63,10 @@ CREATE TABLE track (
 -- DROP TABLE album;
 
 CREATE TABLE album (
-	id int4 NOT NULL,
+	id INTEGER NOT NULL,
 	"name" varchar(40) NOT NULL,
-	"year" int4 NOT NULL,
-	id_track int4 NOT NULL,
+	"year" INTEGER NOT NULL,
+	id_track INTEGER NOT NULL,
 	CONSTRAINT album_pk PRIMARY KEY (id),
 	CONSTRAINT album_fk FOREIGN KEY (id_track) REFERENCES track(id)
 );
@@ -79,8 +79,8 @@ CREATE TABLE album (
 -- DROP TABLE artist_album;
 
 CREATE TABLE artist_album (
-	id_artist int4 NOT NULL,
-	id_album int4 NOT NULL,
+	id_artist INTEGER NOT NULL,
+	id_album INTEGER NOT NULL,
 	CONSTRAINT artist_album_fk FOREIGN KEY (id_artist) REFERENCES artist(id),
 	CONSTRAINT artist_album_fk_1 FOREIGN KEY (id_album) REFERENCES album(id)
 );
@@ -93,8 +93,8 @@ CREATE TABLE artist_album (
 -- DROP TABLE artist_ganre;
 
 CREATE TABLE artist_ganre (
-	id_artist int4 NOT NULL,
-	id_ganre int4 NOT NULL,
+	id_artist INTEGER NOT NULL,
+	id_ganre INTEGER NOT NULL,
 	CONSTRAINT artist_ganre_fk FOREIGN KEY (id_artist) REFERENCES artist(id),
 	CONSTRAINT artist_ganre_fk_1 FOREIGN KEY (id_ganre) REFERENCES ganre(id)
 );
@@ -107,8 +107,8 @@ CREATE TABLE artist_ganre (
 -- DROP TABLE track_collection;
 
 CREATE TABLE track_collection (
-	id_track int4 NOT NULL,
-	id_collection int4 NOT NULL,
+	id_track INTEGER NOT NULL,
+	id_collection INTEGER NOT NULL,
 	CONSTRAINT newtable_fk FOREIGN KEY (id_track) REFERENCES track(id),
 	CONSTRAINT track_collection_fk FOREIGN KEY (id_collection) REFERENCES collection(id)
 );
