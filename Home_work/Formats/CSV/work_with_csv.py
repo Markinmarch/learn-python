@@ -1,7 +1,7 @@
 import csv
 
 def read_file_csv(file_name):
-    with open(file_name, 'r', encoding='1252') as file:
+    with open(file_name, 'r', encoding='utf-8') as file:
         ready_to_read = csv.reader(file, delimiter=',')
         return ready_to_read
 adress = 'C:/Users/User/Desktop/Study/netology_learning/Home_work/Formats/CSV/auto.csv'
