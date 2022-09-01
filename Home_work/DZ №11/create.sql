@@ -1,3 +1,9 @@
+--создание таблицы исполнителей
+CREATE TABLE IF NOT EXISTS artist (
+	id serial INTEGER PRIMARY KEY,
+	name VARCHAR(40) NOT NULL
+);
+
 --создание таблицы альбомов
 CREATE TABLE IF NOT EXISTS album (
 	id SERIAL INTEGER PRIMARY KEY,
