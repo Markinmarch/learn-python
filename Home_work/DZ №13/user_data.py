@@ -3,8 +3,19 @@
 def enter_data():
     name = input('Введите имя: ')
     last_name = input('Введите фамилию: ')
-    mail = input('Введите адреса электронной почты через запятую: ').split(',')
-    phone = input('Введите номера телефонов через запятую: ').split(',')
+    while True:
+        mail = input('Введите адреса электронной почты через запятую: ').split(',')
+        if mail == False:
+            print('Адрес почты отсутсвует')
+        else:
+            break
+        phone = input('Введите номера телефонов через запятую: ').split(',')
+        if phone == False:
+            print('Номер телефона отсутствует')
+        if mail and phone == False:
+            print('Мы не можем внести Ваши данные без каких-либо контактов с вами.\n'
+                  'Попробуйте ввести данные снова!')
+            break
     data_dict = {
         'name': name,
         'last_name': last_name,
@@ -13,4 +24,4 @@ def enter_data():
             }
     return data_dict
    
-# print(enter_data())
+print(enter_data())
