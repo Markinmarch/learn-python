@@ -1,29 +1,16 @@
 # создаём ячейку данных о пользователе
 
-def enter_data():
+name = input('Введите имя: ')
+last_name = input('Введите фамилию: ')
     
-    name = input('Введите имя: ')
-    last_name = input('Введите фамилию: ')
+while True:
     
-    while True:
-        
-        mail = input('Введите адреса электронной почты через запятую: ').split(',')
-        phone = input('Введите номера телефонов через запятую: ').split(',')
-        if mail and phone == ['']:
-            print(
-                'Мы не можем внести Ваши данные без каких-либо контактов.\n'
+    mail = input('Введите адреса электронной почты через запятую: ')
+    phone = input('Введите номера телефонов через запятую: ')
+    if mail and phone == ['']:
+        print(
+            'Мы не можем внести Ваши данные без каких-либо контактов.\n'
                 'Введите номер телефона или почту!'
                 )
-        else:
-            break
-
-    data_dict = {
-        'name': name,
-        'last_name': last_name,
-        'mail': mail,
-        'num_phone': phone
-            }
-
-    return data_dict
-   
-# print(enter_data())
+    else:
+        break
