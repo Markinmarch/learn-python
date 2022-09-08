@@ -15,13 +15,13 @@ with psycopg2.connect(database = 'HW_13', user = 'postgres', password = 'M4rk130
         conn.commit()
     
         cur.execute(f"""
-                    INSERT INTO user_data(id, name, last_name, num_phone, email)
+                    INSERT INTO user_data(name, last_name, num_phone, email)
                     VALUES(
                     '{enter_data.name}',
                     '{enter_data.last_name}',
                     '{enter_data.phone}',
                     '{enter_data.mail}')
-                    RETURNING id, name, last_name;
+                    RETURNING name, last_name;
                     """)
         print(cur.fetchone()) 
     
