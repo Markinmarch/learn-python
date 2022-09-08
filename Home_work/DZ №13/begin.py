@@ -3,31 +3,38 @@ import enter_data
 
 with psycopg2.connect(database = 'HW_13', user = 'postgres', password = 'M4rk130t08') as conn:
     with conn.cursor() as cur:
-        cur.execute('''
+        cur.execute("""
                     CREATE TABLE IF NOT EXISTS user_data(
-                        id SERIAL PRIMARY KEY NOT NULL,
                         name VARCHAR(40) NOT NULL,
                         last_name VARCHAR(40) NOT NULL,
                         num_phone VARCHAR UNIQUE NULL,
                         email VARCHAR UNIQUE NULL                       
                     );
-                    ''')
-        conn.commit()
-    
-        cur.execute(f"""
-                    INSERT INTO user_data(name, last_name, num_phone, email)
-                    VALUES(
-                    '{enter_data.name}',
-                    '{enter_data.last_name}',
-                    '{enter_data.phone}',
-                    '{enter_data.mail}')
-                    RETURNING name, last_name;
                     """)
-        print(cur.fetchone()) 
+        conn.commit()
+
+        cur.execute("""
+                    INSERT INTO user_data (name, last_name, num_phone, email)
+                    VALUES (%s, %s, %s, %s)
+                    RETURNING name, last_name;
+                    """, (enter_data.add_data.name,
+                          enter_data.add_data.last_name,
+                          enter_data.add_data.phone,
+                          enter_data.add_data.mail))
+        print(cur.fetchone())
+    
+        # cur.execute("""
+        #             UPDATE user_data SET num_phone=%s
+        #             WHERE name=%s AND last_name=%s;
+        #             """,('1234567890', 'Марк', 'Изотов'))
+        # cur.execute("""
+        # SELECT * FROM user_data;
+        # """)
+        # print(cur.fetchall())
     
 conn.close()
 
-                        # {enter_data.enter_data().get('name')},
-                        # {enter_data.enter_data().get('last_name')},
-                        # {enter_data.enter_data().get('mail')},
-                        # {enter_data.enter_data().get('num_phone')}
+                    # """, ({enter_data.add_data.name},
+                    #       {enter_data.add_data.last_name},
+                    #       {enter_data.add_data.phone},
+                    #       {enter_data.add_data.mail}))
