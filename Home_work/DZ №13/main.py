@@ -2,7 +2,7 @@ import psycopg2
 
 name_DB = input('Введите имя базы данных: ')#'HW_13'
 user_name = input('Введите имя пользователя базы данных: ')#'postgres'
-user_pass = input('Введите пароль от базы данных: ')#'M4rk130t08'
+user_pass = input('Введите пароль от базы данных: ')#''
 
 with psycopg2.connect(database = name_DB, user = user_name, password = user_pass) as conn:
     with conn.cursor() as cur:
