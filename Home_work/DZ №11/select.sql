@@ -21,4 +21,4 @@ WHERE name NOT LIKE '%% %%'
 
 --запрос на название трека с наличием в название "Мой"
 select "name" from track
-WHERE "name" LIKE '%Мой%' or like '%мой%'
+WHERE "name" LIKE '%Мой%' OR LIKE '%мой%'
