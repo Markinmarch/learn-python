@@ -14,5 +14,3 @@ with psycopg2.connect(database = 'HW_13', user = 'postgres', password = 'M4rk130
                     """)
         conn.commit()
         print('Таблица создана!')
-
-conn.close()
