@@ -4,7 +4,7 @@ import csv
 PHONE_PATTERN = r'(\+7|8)*[\s\(]*(\d{3})[\)\s-]*(\d{3})[-]*(\d{2})[-]*(\d{2})[\s\(]*(доб\.)*[\s]*(\d+)*[\)]*'
 PHONE_SUB = r'+7(\2)-\3-\4-\5 \6\7'
 
-with open('phonebook_raw.csv', encoding='utf-8') as f:
+with open(r'DZ_16/csv_files/phonebook_raw.csv', encoding='utf-8') as f:
     rows = csv.reader(f, delimiter=',')
     contacts_list = list(rows)
 
@@ -42,6 +42,6 @@ def union(contacts: list):
     return result_list
 
 # код для записи файла в формате CSV
-with open(r'csv_files/phonebook.csv', 'w', encoding='utf-8') as f:
+with open(r'DZ_16/csv_files/phonebook.csv', 'w', encoding='utf-8') as f:
     datawriter = csv.writer(f, delimiter=',')
     datawriter.writerows(main(contacts_list))
