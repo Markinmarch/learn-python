@@ -3,6 +3,8 @@
 import requests
 from bs4 import BeautifulSoup
 
+KEYWORDS = ['дизайн', 'фото', 'web', 'python']
+
 url = 'https://habr.com/ru/all/'
 response = requests.get(url).text
 # print(response.text)
@@ -14,9 +16,9 @@ soup = BeautifulSoup(response, 'lxml')
 # print(title.text)
 # print(title.string)
 
-# page_h1 = soup.find('h1')
-# print(page_h1.text)
+page_h1 = soup.find('h1')
+print(page_h1.text)
 
-page_all_h1 = soup.find_all('h1')
-print(page_all_h1)
+# page_all_h1 = soup.find_all('h1')
+# print(page_all_h1)
 
