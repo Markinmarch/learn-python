@@ -2,31 +2,17 @@
 # pip install lxml
 import requests
 from bs4 import BeautifulSoup
+import re
 
 KEYWORDS = ['дизайн', 'фото', 'web', 'python']
 
 url = 'https://habr.com/ru/all/'
 response = requests.get(url).text
-with open(r'DZ_17_web_scraping/html/habr.html', 'w', encoding = 'utf-8') as file:
-    file.write(response)
+# with open(r'DZ_17_web_scraping/html/habr.html', 'w', encoding = 'utf-8') as file:
+#     file.write(response)
 # print(response)
 
-soup = BeautifulSoup(response, 'lxml')
+soup = BeautifulSoup(response, 'html.parser')
 
-# title = soup.title
-# print(title)
-# print(title.text)
-# print(title.string)
-
-# page_h1 = soup.find('h1')
-# print(page_h1.text)
-
-# page_all_h1 = soup.find_all('h1')
-# print(page_all_h1)
-
-# for item in page_all_h1:
-#     print(item.text)
-
-# user_name = soup.find('div', class_ = 'user')
-
-# print(user_name)
+find_all_keywords = soup.find('div', {'class': 'tm-articles-list', 'data-test-id': 'articles-list'}).find_all(text = re.compile(KEYWORDS))
+print(find_all_keywords)
