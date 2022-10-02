@@ -9,6 +9,7 @@ url = 'https://tproger.ru/'
 response = requests.get(url).text
 soup = BeautifulSoup(response, 'html.parser')
 
+# формируем расширенный поисковой список
 def preparing_search_list(keywords):
 
     search_list = []
@@ -34,7 +35,15 @@ def desired_list():
                 link_list.append(ready_blocks)
     return list(set(link_list))
 
-print(desired_list())
+# функция запроса ссылок для возвращения даты
+
+
+
+# for i in desired_list():
+    # print(i)
+# print(desired_list())
+
+
 
 # with open(r'DZ_17_web_scraping/html/habr.html', 'w', encoding = 'utf-8') as file:
 #     file.write(response)
