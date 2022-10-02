@@ -18,6 +18,8 @@ def preparing_search_list(keywords):
         get_new_list = search_list + keywords
     return(get_new_list)
 
+# функция вызова ссылок с текстом по ключевым словам
+# получил требуемые значения по общему классу
 def desired_list():
     
     link_list = []
