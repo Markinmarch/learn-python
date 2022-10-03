@@ -99,44 +99,27 @@ def desired_list():
 
 
 
-def date_return():
-    date_list = []
-    for i in desired_list():
-        url = i.split(' --- ')[1]
-        q = requests.get(url).text
-        soup = BeautifulSoup(q, 'html.parser')
-        y = soup.find_all('time')
-        for i in y:
-            date_list.append(i['title'])
-    return date_list
+
         
-# print(date_return())
-# print(desired_list())
-        
-            
-        
-def qwerty():
-    lst0 = []
-    for i in desired_list():
-        j = (i.split(' --- ')[1])
-        lst0.append(j)
-    lst1 = []
-    for i in desired_list():
-        d = (i.split(' --- ')[0])
-        lst1.append(d)
-    # print(lst1)
-    lst2 = []
-    for q in date_return():
-        lst2.append(q)
-    # print(lst2)
-    lst3 = []
-    for q1, d1, j1 in zip(lst0, lst1, lst2):
-        x = f'{j1} - {d1} - {q1}'
-        # print(x)
-        lst3.append(x)
-    # print(lst3)
-    z = sorted(lst3, key = lambda u: u[0:2])
-    print(z)
+
+def ready_pars_list():
+    text_list = []
+    for item_text in desired_list():
+        pars_text = (item_text.split(' --- ')[1])
+        text_list.append(pars_text)
+    link_list = []
+    for item_link in desired_list():
+        pars_link = (item_link.split(' --- ')[0])
+        link_list.append(pars_link)
+    time_list = []
+    for item_time in date_return():
+        time_list.append(item_time)
+    pars_list = []
+    for txt, lnk, tm in zip(text_list, link_list, time_list):
+        pars_str = f'{tm} - {lnk} - {txt}'
+        pars_list.append(pars_str)
+    sort_pars_list = sorted(pars_list, key = lambda x: x[0:2])
+    print(sort_pars_list)
  
     
-qwerty()
+# ready_pars_list()
