@@ -1,29 +1,29 @@
 class FlatIterator:
 
     def __init__(self, multi_list):
-        """Определяет атрибут для хранения списка списков"""
+        """Метод определяет атрибут для хранения списка списков"""
         self.multi_list = multi_list
 
     def __iter__(self):
-        """Определяет атрибуты для итерации по списку"""
-        self.list_iter = iter(self.multi_list)  # определяем итератор для списка
-        self.nested_list = []  # определяем вложенный список для добавления элементов
-        self.cursor = -1  # смещаем курсор за границу списка
+        """Метод определяет атрибуты для итерации по списку"""
+        self.list_iter = iter(self.multi_list)
+        self.nested_list = []
+        self.cursor = -1
         return self
 
     def __next__(self):
-        """Определяет и возвращает следущий элемент списка списков"""
+        """Метод определяет и возвращает следущий элемент списка списков"""
         self.cursor += 1
-        if len(self.nested_list) == self.cursor:  # если курсор в конце вложенного списка, то "обнуляем" список и курсор
+        if len(self.nested_list) == self.cursor:
             self.nested_list = None
             self.cursor = 0
-            while not self.nested_list:  # если вложенные списки закончились, то получаем stop iteration
-                self.nested_list = next(self.list_iter)  # если  список пустой, то получаем следующий вложенный список
+            while not self.nested_list:
+                self.nested_list = next(self.list_iter)
         return self.nested_list[self.cursor]
 
-
+# функция позволяет возвращать эелементы из списка списков с двойным уровнем вложености
 def flat_generator(my_list):
-    """Генератор позволяет  возвращать эелементы из списка списков с двойным уровнем вложености"""
+    
     for sub_list in my_list:
         for elem in sub_list:
             yield elem
