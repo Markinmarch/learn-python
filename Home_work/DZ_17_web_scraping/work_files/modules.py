@@ -18,8 +18,9 @@ def preparing_search_list(keywords):
     for item_words in keywords:
         replacing_list = item_words.title()
         search_list.append(replacing_list)
-        get_new_list = search_list + keywords
-    return(get_new_list)
+    get_new_list = search_list + keywords
+    return get_new_list
+
 
 # функция вызова ссылок с текстом по ключевым словам
 # получил требуемые значения по общему классу
