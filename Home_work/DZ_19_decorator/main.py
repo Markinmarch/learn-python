@@ -5,7 +5,10 @@ import datetime
 from work_files import scrap_web
 import inspect
 
-
+        
+    
+    
+    
 def log_info(enter_func):
     
     with open(r'DZ_19_decorator/logs/csv_log.csv', 'w', encoding = 'utf-8') as file:
@@ -19,7 +22,7 @@ def log_info(enter_func):
         date_now = datetime.datetime.now().strftime('%d-%m-%Y')
         time_now = datetime.datetime.now().strftime('%H:%M:%S:%f')
         func_args = inspect.signature(enter_func)
-        return [date_now, time_now, enter_func(*args, **kwargs), enter_func.__name__, inspect.getabsfile(enter_func), func_args]
+        return [date_now, time_now, enter_func(*args, **kwargs), enter_func.__name__, inspect.getabsfile(enter_func)]
     return func_enter
 #         enter_func(*args, **kwargs)
 
@@ -61,6 +64,7 @@ def web_scrap(url):
 
 func_argg = input('Введите адрес сайта: ')
 print(web_scrap(func_argg))
+
 # https://www.ozon.ru/
 # print(dir(web_scrap))
 # print(inspect.signature(web_scrap))
