@@ -19,8 +19,6 @@ def log_info(enter_func):
         date_now = datetime.datetime.now().strftime('%d-%m-%Y')
         time_now = datetime.datetime.now().strftime('%H:%M:%S:%f')
         func_args = inspect.signature(enter_func)
-        for i in func_args:
-            print(i)
         return [date_now, time_now, enter_func(*args, **kwargs), enter_func.__name__, inspect.getabsfile(enter_func), func_args]
     return func_enter
 #         enter_func(*args, **kwargs)
