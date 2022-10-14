@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
+from work_files import decorator
 
+@decorator.log_info
 def web_scrap(url):
     
     response = requests.get(url).text
@@ -14,9 +16,3 @@ def web_scrap(url):
         ready_to_lst = f'{item_text}: {item_url}'
         lst_href.append(ready_to_lst)
     return lst_href
-    
-# print(web_scrap('https://www.ozon.ru/'))
-        
-# if __name__ == '__main__':
-    
-#     web_scrap()
