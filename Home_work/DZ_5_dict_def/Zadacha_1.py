@@ -27,7 +27,7 @@ def get_shelf_number(shelf_number):
 
 def get_list(docs):
   for doc in docs:
-    print(f"{doc['type']} {doc['number']} {doc['name']}")
+    return f"{doc['type']} {doc['number']} {doc['name']}"
 # (get_list(documents))
 
 def add_doc(docs_add, direct_add):
@@ -41,9 +41,9 @@ def add_doc(docs_add, direct_add):
   docs_add.append(new_data)
   direct_add[num_shelf].append(new_data['number'])
   for doc in docs_add:
-      print(doc['type'], doc['number'], doc['name'])
-  print(direct_add)
-  print('Готово!')
+      return doc['type'], doc['number'], doc['name']
+  return direct_add
+
 # add_doc(documents, directories)
 
 while True:

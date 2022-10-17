@@ -28,5 +28,6 @@ def log_info(enter_func):
         with open(r'DZ_19_decorator/logs/csv_log.csv', 'a', encoding = 'utf-8') as f:
             writer = csv.writer(f)
             writer.writerow(main_lst)
-        
+            
+        return main_lst
     return func_enter
