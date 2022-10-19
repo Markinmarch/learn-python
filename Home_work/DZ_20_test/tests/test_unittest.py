@@ -1,19 +1,18 @@
-import unittest
-from unittest import result
-from unittest.mock import patch
-
+from unittest import TestCase
 from DZ_5_dict_def import Zadacha_1
 
-class TestFunc(unittest.TestCase):
+class Test(TestCase):
     
-    # def setUp(self) -> None:
-    #     print('setUp ==>')
+    def setUp(self):
+        self.test_func = Zadacha_1
         
-    @patch('Zadacha_1.')
     # def tearDown(self) -> None:
-    #     print('tearDown')
-        
+    #     print('tearDown') 
     def test_Zadacha_1(self):
-
-        self.assertEqual(etalon, result)
         
+        result = self.test_func.get_people_name('2207 876234')
+        etalon = 'Василий Питонов'
+        self.assertEqual(result, etalon)
+        
+if __name__ == '__main__':
+    unittest.main()
