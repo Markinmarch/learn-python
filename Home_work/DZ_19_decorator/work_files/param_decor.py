@@ -14,7 +14,7 @@ def param_decor_with_path(path):
                         time_now,
                         enter_func.__name__,
                         enter_func(*args, **kwargs),
-                        inspect.getargspec(enter_func).args,
+                        inspect.getfullargspec(enter_func).args,
                         inspect.getabsfile(enter_func)]
 
             with open(path, 'a', encoding = 'utf-8') as f:
