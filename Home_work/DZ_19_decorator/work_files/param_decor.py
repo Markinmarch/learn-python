@@ -24,3 +24,9 @@ def param_decor_with_path(path):
             return main_lst
         return func_enter
     return log_info
+
+@param_decor_with_path('DZ_19_decorator/logs/csv_log.csv')
+def div(a,b):
+    return a+b
+
+print(div(5, 10))

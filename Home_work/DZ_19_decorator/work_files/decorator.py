@@ -13,7 +13,7 @@ def log_info(enter_func):
                     time_now,
                     enter_func.__name__,
                     enter_func(*args, **kwargs),
-                    inspect.getargspec(enter_func).args,
+                    inspect.getfullargspec(enter_func).args,
                     inspect.getabsfile(enter_func)]
         
         if os.path.isfile('DZ_19_decorator/logs/csv_log.csv'):
@@ -29,5 +29,4 @@ def log_info(enter_func):
             writer = csv.writer(f)
             writer.writerow(main_lst)
             
-        return main_lst
-    return func_enter
+        return func_enter
