@@ -1,16 +1,15 @@
-from unittest import TestCase
-from DZ_5_dict_def import Zadacha_1
+import unittest
+from work_ import buhgalteria
 
-class Test(TestCase):
+class Test(unittest.TestCase):
     
     def setUp(self):
-        self.test_func = Zadacha_1
-        
-    # def tearDown(self) -> None:
-    #     print('tearDown') 
+      
+      self.func = buhgalteria.get_people_name('2207 876234')   
+    
     def test_Zadacha_1(self):
         
-        result = self.test_func.get_people_name('2207 876234')
+        result = self.func
         etalon = 'Василий Питонов'
         self.assertEqual(result, etalon)
         
