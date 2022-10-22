@@ -1,3 +1,4 @@
+# psql -U postgres
 from operator import or_
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
@@ -22,7 +23,7 @@ session = Session()
 def import_models():
     
     path = input('Введите путь к импортируемым данным: ')
-    # path = 'C:/Users/User/Desktop/Study/netology_learning/Home_work/DZ_14/data.json'
+    # path = 'C:/Users/User/Desktop/Study/netology_learning/Home_work/DZ_14_ORM/data.json'
     open_file = json.load(open(path, 'r', encoding='utf-8'))
     for item in open_file:
         
