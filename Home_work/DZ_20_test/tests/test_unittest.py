@@ -1,11 +1,11 @@
 import unittest
-from work_ import buhgalteria
+from work_ import main_work
 
 class Test(unittest.TestCase):
     
     def setUp(self):
       
-      self.func = buhgalteria.get_people_name('2207 876234')   
+      self.func = main_work   
     
     def test_Zadacha_1(self):
         
