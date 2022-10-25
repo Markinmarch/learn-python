@@ -1,17 +1,15 @@
 import unittest
-from work_ import main_work
+import buhgalteria_class, data
 
 class Test(unittest.TestCase):
     
     def setUp(self):
-      
-      self.func = main_work   
-    
+        self.func = buhgalteria_class.Buhgalteria.get_people_name()
+
     def test_Zadacha_1(self):
-        
-        result = self.func
-        etalon = 'Василий Питонов'
-        self.assertEqual(result, etalon)
-        
+        self.assertEqual(self.func, 'Иерофан Покемонов')
+
 if __name__ == '__main__':
     unittest.main()
+# if __name__ == '__main__':
+#     unittest.main()
