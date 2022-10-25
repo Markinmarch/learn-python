@@ -1,6 +1,5 @@
 from unittest.mock import patch
 import unittest
-
 def get_input(text):
     return input(text)
 def answer():
@@ -20,5 +19,3 @@ class Test(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-# if __name__ == '__main__':
-#     unittest.main()
