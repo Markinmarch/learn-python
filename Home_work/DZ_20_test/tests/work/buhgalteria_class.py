@@ -16,14 +16,12 @@ class Buhgalteria():
         self.direct_add = direct_add
 
     def get_people_name(self, what_number_doc):
-        # what_number_doc = input('Введите номер документа: ')
         for people in self.name:
             if what_number_doc in people['number']:
                 return(people['name'])
         return('Номера не существует!')
     
     def get_shelf_number(self, what_number_doc):
-        # what_number_doc = input('Введите номер документа: ')
         for shelf_value in self.shelf_number:
             if what_number_doc in self.shelf_number.get(shelf_value):
                 return(f'Документ находится на полке № {shelf_value[0]}')
@@ -36,53 +34,44 @@ class Buhgalteria():
             lst.append(ien)
         return lst
         
-    def add_doc(self, num_shelf, new_data):
-        # num_shelf = input('Введите номер полки, куда положить документ: ')
+    def add_doc(self, new_data, num_shelf):
         if num_shelf not in self.direct_add.keys():
             return 'Такой полки не существует!'
-        new_data = {}
-        # for Ddata in ('type', 'number', 'name'):
-            # new_data[Ddata] = input(f'Введите данные: {Ddata}')
         self.docs_add.append(new_data)
         self.direct_add[num_shelf].append(new_data['number'])
-        for doc in self.docs_add:
-            return f"{doc['type'], doc['number'], doc['name']}"
-        return self.direct_add
+        lst = []
+        for dok in self.docs_add:
+            cen = f"{dok['type']} {dok['number']} {dok['name']}"
+            lst.append(cen)
+        return lst, self.direct_add
     
-class work_buh():
+class work_buh(Buhgalteria):
     '''рабочий метод, в котором вводится команда'''
+    
+    def __init__(self, name=buh_data.documents, shelf_number=buh_data.directories, docs=buh_data.documents, docs_add=buh_data.documents, direct_add=buh_data.directories):
+        super().__init__(name, shelf_number, docs, docs_add, direct_add)
     
     def get_input(self, text):
         return input(text)
-    
-    documents = buh_data.documents
-    directories = buh_data.directories
-        
-    get_args_to_class = Buhgalteria(
-    documents,
-    directories,
-    documents,
-    documents,
-    directories
-    )
-    def huef(self):
+
+    def get_command(self):
         while True:
             print('Возможные команды: p, s, l, a')
             comand = input('Введите название команды ')
             if comand == 'p':
-                comand_p = Buhgalteria.get_people_name(self.get_args_to_class, input('Введите номер документа: '))
+                comand_p = self.get_people_name(input('Введите номер документа: '))
                 return comand_p
             elif comand == 's':
-                comand_s = Buhgalteria.get_shelf_number(self.get_args_to_class, input('Введите номер документа: '))
+                comand_s = self.get_shelf_number(input('Введите номер документа: '))
                 return comand_s
             elif comand == 'l':
-                comand_l = Buhgalteria.get_list(self.get_args_to_class)
+                comand_l = self.get_list()
                 return comand_l
             elif comand == 'a':
-                data_lst = []
-                for Ddata in ('type ', 'number ', 'name '):
-                    Ddata = input(f'Введите данные: {Ddata}')
-                comand_a = Buhgalteria.add_doc(self.get_args_to_class, input('Введите номер полки, куда положить документ: '), Ddata)
+                new_data = {}
+                for Ddata in ('type', 'number', 'name'):
+                    new_data[Ddata] = input(f'Введите данные: {Ddata}')
+                comand_a = self.add_doc(new_data, input('Введите номер полки, куда положить документ: '))
                 return comand_a
             # break
     
