@@ -1,7 +1,7 @@
 import requests
 
 TOKEN_YADISK = 'token'
-mkdir_url = 'https://cloud-api.yandex.net:443/v1/disk/resources'
+mkdir_url = 'https://cloud-api.yandex.net/v1/disk/resources'
 
 
 def create_folder(path: str):
