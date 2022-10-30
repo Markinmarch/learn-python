@@ -1,6 +1,10 @@
 class myStack():
     
-    def __init__(self, stack_data, something):
+    def __init__(
+        self,
+        stack_data,
+        something
+        ):
         self.SD = stack_data
         self.SMTG = something
     
@@ -26,10 +30,20 @@ class myStack():
     
 class getIt(myStack):
     
-    def __init__(self, stack_data, something):
-        super().__init__(stack_data, something)
+    def __init__(
+        self,
+        stack_data,
+        something
+        ):
+        super().__init__(
+            stack_data,
+            something
+            )
     
     # проверка на сбалансированость
+    # при наличии закрытых скобок постоянно удаляем их до тех пор
+    # пока либо скобки вообще не закончатся, тогда bool возвращается False,
+    # либо пока закрытых скобок не останется
     def check_ballance(self, item):
         while '[]' in item or '()' in item or '{}' in item:
             item = item.replace('[]', '')
