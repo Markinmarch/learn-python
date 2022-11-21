@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <title>Рецепты</title>
 </head>
-<body>
-{% for ingredient, amount in recipe.items %}
-    <p>{{ ingredient }}: {{ amount }}</p>
-{% empty %}
-    <p>Такого рецепта не знаю :(</p>
-{% endfor %}
+<body style = 'background-color: black'>
+    <h1 style = "color: yellowgreen ; text-align: center; font-size: 24px; background-color: grey">
+        Выберите блюдо для приготовления:
+    </h1>
+    <div style = 'text-align: center; font-size: 20px; color: blue; padding: 40px'>
+        <a href = 'http://127.0.0.1:8000/omlet/'><button>Omlet<button/><a/>
+        <a href = 'http://127.0.0.1:8000/pasta/'><button>Pasta<button/><a/>
+        <a href = 'http://127.0.0.1:8000/buter/'><button>Buter<button/><a/>
+    </div>
 </body>
 </html>
