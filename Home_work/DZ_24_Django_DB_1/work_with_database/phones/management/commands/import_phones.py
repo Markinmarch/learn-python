@@ -25,3 +25,4 @@ class Command(BaseCommand):
                     lte_exists=line[5],
                     slug=slugify(line[1]),
                 )
+        pass

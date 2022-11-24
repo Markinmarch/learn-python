@@ -1,7 +1,7 @@
 from django.contrib import admin
-from phones import models
+from .models import Phone
 
 # Register your models here.
-@admin.register(models.Phone)
+@admin.register(Phone)
 class PhoneAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'price','image','release_date','lte_exists','slug')
+    list_display = ['id', 'name', 'price','image','release_date','lte_exists','slug']
