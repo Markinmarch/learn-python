@@ -18,8 +18,7 @@ def show_catalog(request):
     elif sort_pages == 'name':
         phones_objects = phones_objects.order_by('name')
 
-    context = {'phones': phones_objects,
-               }
+    context = {'phones': phones_objects}
     return render(request, template, context=context)
 
 
