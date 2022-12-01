@@ -1,6 +1,6 @@
 [
 {
-  "model": "school.teacher",
+  "model": "school.teachers",
   "pk": 1,
   "fields": {
     "name": "\u041a\u0430\u0440\u044f\u043a\u0438\u043d \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440 \u0412\u043b\u0430\u0434\u0438\u043c\u0438\u0440\u043e\u0432\u0438\u0447",
@@ -8,7 +8,7 @@
   }
 },
 {
-  "model": "school.teacher",
+  "model": "school.teachers",
   "pk": 2,
   "fields": {
     "name": "\u041d\u0430\u0443\u043c\u043a\u0438\u043d \u0410\u043d\u0430\u0442\u043e\u043b\u0438\u0439 \u0410\u043d\u0434\u0440\u0435\u0435\u0432\u0438\u0447",
@@ -16,7 +16,7 @@
   }
 },
 {
-  "model": "school.teacher",
+  "model": "school.teachers",
   "pk": 3,
   "fields": {
     "name": "\u0424\u0438\u043b\u0430\u0442\u043e\u0432\u0430 \u0415\u043b\u0435\u043d\u0430 \u0410\u043b\u0435\u043a\u0441\u0430\u043d\u0434\u0440\u043e\u0432\u043d\u0430",
