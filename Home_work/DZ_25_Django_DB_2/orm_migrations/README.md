@@ -74,5 +74,3 @@ python manage.py loaddata school.json
 ```bash
 python manage.py runserver
 ```
-
-<!-- createdb -U postgres DZ_25 -->

@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-import configparser
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -70,17 +69,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'website.wsgi.application'
 
-config = configparser.ConfigParser()
-config.read('KEYS.ini')
-PASS = config['DBpass']['pass']
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'DZ_25',
+        'NAME': 'netology_orm_migrations',
         'HOST': '127.0.0.1',
         'PORT': '5432',
-        'PASSWORD': PASS
     }
 }
 
