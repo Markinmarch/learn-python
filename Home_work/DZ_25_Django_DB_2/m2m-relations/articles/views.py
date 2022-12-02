@@ -4,8 +4,9 @@ from articles.models import Article
 
 
 def articles_list(request):
-    template = 'articles/news.html'
-    context = {}
+    template = 'articles/news.html's
+    articles = Article.objects.all().prefetch_related('scope').order_by(ordering)
+    context = {'object_list': articles}
 
     # используйте этот параметр для упорядочивания результатов
     # https://docs.djangoproject.com/en/3.1/ref/models/querysets/#django.db.models.query.QuerySet.order_by
