@@ -11,7 +11,7 @@ class Student:
 # Определение средней оценки студента
     def __str__(self):
         grades_count = 0
-        courses_in_progress_string = ', '.join(self.courses_in_progress)
+        courses_in_progress_string =', '.join(self.courses_in_progress)
         finished_courses_string = ', '.join(self.finished_courses)
         for k in self.grades:
             grades_count += len(self.grades[k])
